@@ -1,0 +1,37 @@
+├── dist
+├── e2e
+|  ├── tsconfig.json
+|  └── vue.spec.ts
+├── env.d.ts
+├── index.html
+├── package-lock.json
+├── package.json
+├── playwright.config.ts
+├── public
+|  └── favicon.ico
+├── README.md
+├── src
+|  ├── App.vue
+|  ├── assets
+|  |  ├── base.css
+|  |  ├── logo.svg
+|  |  └── main.css
+|  ├── components
+|  |  ├── HelloWorld.vue
+|  |  ├── icons
+|  |  ├── TheWelcome.vue
+|  |  ├── WelcomeItem.vue
+|  |  └── __tests__
+|  ├── main.ts
+|  ├── router
+|  |  └── index.ts
+|  ├── stores
+|  |  └── counter.ts
+|  └── views
+|     ├── AboutView.vue
+|     └── HomeView.vue
+├── tsconfig.app.json
+├── tsconfig.config.json
+├── tsconfig.json
+├── tsconfig.vitest.json
+└── vite.config.ts
