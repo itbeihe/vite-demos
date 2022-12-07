@@ -9,6 +9,14 @@
         <el-option label="Zone two" value="beijing" />
       </el-select>
     </el-form-item>
+    <el-form-item label="Activity zone">
+      <el-date-picker
+          v-model="formInline.date"
+          type="date"
+          placeholder="Pick a date"
+          style="width: 100%"
+      />
+    </el-form-item>
     <el-form-item>
       <el-button type="primary" @click="onSubmit">Query</el-button>
     </el-form-item>
@@ -20,6 +28,7 @@ import { reactive } from "vue";
 const formInline = reactive({
   user: "",
   region: "",
+  date:"",
 });
 
 const onSubmit = () => {
