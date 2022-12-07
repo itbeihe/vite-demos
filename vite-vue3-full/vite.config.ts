@@ -2,8 +2,10 @@ import { fileURLToPath, URL } from "node:url";
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
 import vueJsx from "@vitejs/plugin-vue-jsx";
-import { chunkSplitPlugin } from 'vite-plugin-chunk-split';
+import { chunkSplitPlugin } from "vite-plugin-chunk-split";
+import autoprefixer from "autoprefixer";
 
+import { splitVendorChunkPlugin } from "vite";
 
 // api自动引入插件
 import AutoImport from "unplugin-auto-import/vite";
@@ -14,13 +16,12 @@ import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  server: {
-  },
-  build:{
-    cssCodeSplit: true
+  server: {},
+  build: {
+    cssCodeSplit: true,
   },
   optimizeDeps: {
-    force: false
+    force: false,
   },
   plugins: [
     vue(),
@@ -31,15 +32,16 @@ export default defineConfig({
     Components({
       resolvers: [ElementPlusResolver()],
     }),
+    // splitVendorChunkPlugin(),
     chunkSplitPlugin({
-      strategy: 'default',
+      strategy: "default",
       customSplitting: {
         // `react` and `react-dom` 会被打包到一个名为`render-vendor`的 chunk 里面(包括它们的一些依赖，如 object-assign)
-        'ele-vendor': ['element-plus'],
+        "ele-vendor": ["element-plus"],
         // 源码中 utils 目录的代码都会打包进 `utils` 这个 chunk 中
-        'utils': [/src\/utils/]
-      }
-    })
+        utils: [/src\/utils/],
+      },
+    }),
   ],
   resolve: {
     alias: {
