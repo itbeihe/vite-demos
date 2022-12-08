@@ -3,10 +3,9 @@ import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
 import vueJsx from "@vitejs/plugin-vue-jsx";
 import { chunkSplitPlugin } from "vite-plugin-chunk-split";
-import autoprefixer from "autoprefixer";
-
 import { splitVendorChunkPlugin } from "vite";
 
+import legacy from '@vitejs/plugin-legacy';
 // api自动引入插件
 import AutoImport from "unplugin-auto-import/vite";
 // vue自动导入组件
@@ -41,7 +40,13 @@ export default defineConfig({
         // 源码中 utils 目录的代码都会打包进 `utils` 这个 chunk 中
         utils: [/src\/utils/],
       },
+      //
     }),
+    // polyfill兼容插件
+    legacy({
+      // 设置目标浏览器，browserslist 配置语法
+      targets: ['ie >= 11'],
+    })
   ],
   resolve: {
     alias: {

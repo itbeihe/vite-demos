@@ -1,5 +1,5 @@
 import { defineConfig } from "vite";
-import { chunkSplitPlugin } from 'vite-plugin-chunk-split';
+import { chunkSplitPlugin } from "vite-plugin-chunk-split";
 export default defineConfig({
   plugins: [
     chunkSplitPlugin({

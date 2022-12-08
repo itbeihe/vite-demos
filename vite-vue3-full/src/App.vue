@@ -18,11 +18,16 @@ import HelloWorld from './components/HelloWorld.vue'
       </nav>
     </div>
   </header>
+  <div id="flex"></div>
 
   <RouterView />
 </template>
 
 <style scoped>
+#flex{
+  display: flex;
+  box-sizing: border-box;
+}
 header {
   line-height: 1.5;
   max-height: 100vh;
